@@ -1,11 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Card from './Card';
 import SearchBox from './SearchBox';
-import {robots} from './robots';
 
 function App() {
+  const [robots, setRobots] = useState([]);
   const [searchfield, setSearchField] = useState('');
+
+  useEffect(() => { 
+    async function addRobots() {
+        const res = await fetch("https://jsonplaceholder.typicode.com/users");
+        const data = await res.json();
+        setRobots(data);
+    }
+    addRobots();
+  }, []);
+
   const onSearchChange = (e) => {
     setSearchField(e.target.value);
   }
