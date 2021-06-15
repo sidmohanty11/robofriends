@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Card from './Card';
 import SearchBox from './SearchBox';
+import Scroll from './Scroll';
 
 function App() {
   const [robots, setRobots] = useState([]);
@@ -27,6 +28,7 @@ function App() {
     <div className="App tc">
     <h1>ROBOFRIENDS!</h1>
     <SearchBox searchfield={searchfield} onSearchChange={onSearchChange} />
+    <Scroll>
       {filteredRobots? 
         filteredRobots.map((robot) => (
           <Card 
@@ -44,6 +46,7 @@ function App() {
           username={robot.username}  
           email={robot.email} />
         ))}
+    </Scroll>
     </div>
   );
 }
