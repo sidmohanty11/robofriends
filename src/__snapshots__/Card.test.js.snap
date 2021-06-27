@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`expect if component is present 1`] = `
+<div
+  className="bg-light-green dib br3 pa3 ma2 grow bw2 shadow-5"
+>
+  <img
+    alt=""
+    src="https://robohash.org/undefined?200x200"
+  />
+  <div>
+    <h2 />
+    <p>
+      name: 
+    </p>
+    <p>
+      email: 
+    </p>
+  </div>
+</div>
+`;
