@@ -1,8 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, ChangeEvent } from 'react';
 import './App.css';
 import Card from './Card';
 import SearchBox from './SearchBox';
 import Scroll from './Scroll';
+
+type robot = {
+  id: number,
+  username: string,
+  email: string,
+  name: string,
+}
 
 function App() {
   const [robots, setRobots] = useState([]);
@@ -17,10 +24,10 @@ function App() {
     addRobots();
   }, []);
 
-  const onSearchChange = (e) => {
+  const onSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchField(e.target.value);
   }
-  const filteredRobots = robots.filter((robot) => {
+  const filteredRobots = robots.filter((robot: robot): boolean => {
       return robot.name.toLowerCase().includes(searchfield.toLowerCase());
   });
 
@@ -30,7 +37,7 @@ function App() {
     <SearchBox searchfield={searchfield} onSearchChange={onSearchChange} />
     <Scroll>
       {filteredRobots? 
-        filteredRobots.map((robot) => (
+        filteredRobots.map((robot: robot) => (
           <Card 
           key={robot.id} 
           id={robot.id} 
@@ -38,7 +45,7 @@ function App() {
           username={robot.username}  
           email={robot.email} />
           )): 
-          robots.map((robot) => (
+          robots.map((robot: robot) => (
           <Card 
           key={robot.id} 
           id={robot.id} 

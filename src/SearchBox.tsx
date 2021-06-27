@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 
-function SearchBox({ searchfield, onSearchChange }) {
+type Search = {
+	searchfield: string,
+	onSearchChange: (e: ChangeEvent<HTMLInputElement>) => void,
+}
+
+function SearchBox({ searchfield, onSearchChange }: Search) {
 	return (
 		<div className="pa2">
 		<input 
